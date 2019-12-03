@@ -19,11 +19,9 @@ class App < Sinatra::Base
 # end
 
 get '/goodbye/:name' do
-  @user_name = all_the_names.select do |name|
-    name.name == params[:name]
-  end.first
-  erb :'/goodbye/show.html'
-end
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
+  end
 
 get '/multiply/:num1/:num2' do
   @num = all_the_nums.select do |num|
