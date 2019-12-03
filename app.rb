@@ -19,18 +19,15 @@ class App < Sinatra::Base
 # end
 
 get '/goodbye/:name' do
-  @user_name = all_the_names.select do |name|
-    name.name == params[:name]
-  end.first
-  erb :'/goodbye/show.html'
-end
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
+  end
 
-get '/multiply/:num1/:num2' do
-  @num = all_the_nums.select do |num|
-    num.num == params[:num]
-  end.first
-  erb :'multiply/show.html'
-end
+  get '/multiply/:num1/:num2' do
+      @num1 = params[:num1].to_i
+      @num2 = params[:num2].to_i
+      "#{@num1 * @num2}"
+    end
 
   # Code your final two routes here:
 
